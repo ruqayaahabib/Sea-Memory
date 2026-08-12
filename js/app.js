@@ -45,6 +45,22 @@ function handleClickChoice(event) {
     const playerChoice = event.target.id 
     playerSeq.push(playerChoice)
     console.log("Player choice: ", playerSeq)
+
+    checkAnswer()
+}
+
+function checkAnswer() {
+    const currentIndex = playerSeq.length -1
+    if (playerSeq[currentIndex] === computerSeq[currentIndex]){
+        console.log("correct")
+
+        if(playerSeq.length === computerSeq.length){
+            console.log("check")
+        }
+    }
+    else {
+        console.log("Wrong")
+    }
 }
 
 
