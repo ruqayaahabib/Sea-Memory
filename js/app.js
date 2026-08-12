@@ -59,7 +59,7 @@ function checkAnswer() {
             console.log("check")
 
             score = score + 2
-            scoreEle.textContent = "score:" + score
+            scoreEle.textContent = "score: " + score
             nextRound()
         }
     }
