@@ -26,18 +26,19 @@ function getComputerChoice(){
 
     computerSeq.push(randomChoice)
 
-    console.log("Computer seq:", computerSeq)
+    // console.log("Computer seq:", computerSeq)
 
 }
 
 getComputerChoice()
-getComputerChoice()
-getComputerChoice()
 
 function showSeq() {
+    messageEle.textContent = "Watch the sequence"
     for (let animal of computerSeq) {
-        console.log("Showing animal:", animal)
+        console.log("Show animal:", animal)
     }
+    messageEle.textContent = "Your turn"
+
 }
 showSeq()
 
@@ -56,11 +57,22 @@ function checkAnswer() {
 
         if(playerSeq.length === computerSeq.length){
             console.log("check")
+
+            score = score + 2
+            scoreEle.textContent = "score:" + score
+            nextRound()
         }
     }
     else {
         console.log("Wrong")
+        messageEle.textContent = "Game Over"
     }
+}
+
+function nextRound(){
+    playerSeq=[]
+    getComputerChoice()
+    console.log("new round: ", computerSeq)
 }
 
 
