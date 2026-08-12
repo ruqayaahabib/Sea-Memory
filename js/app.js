@@ -34,6 +34,14 @@ getComputerChoice()
 getComputerChoice()
 getComputerChoice()
 
+function showSeq() {
+    for (let animal of computerSeq) {
+        console.log("Showing animal:", animal)
+    }
+}
+showSeq()
+
+
 
 
 /*----------------------------- Event Listeners -----------------------------*/
