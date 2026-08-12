@@ -41,7 +41,14 @@ function showSeq() {
 }
 showSeq()
 
-
+function handleClickChoice(event) {
+    const playerChoice = event.target.id 
+    playerSeq.push(playerChoice)
+    console.log("Player choice: ", playerSeq)
+}
 
 
 /*----------------------------- Event Listeners -----------------------------*/
+for (let oneAnimal of animalEle) {
+    oneAnimal.addEventListener("click",handleClickChoice)
+}
