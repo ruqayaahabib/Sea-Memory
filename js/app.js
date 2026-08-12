@@ -35,7 +35,7 @@ getComputerChoice()
 function showSeq() {
     messageEle.textContent = "Watch the sequence"
     for (let animal of computerSeq) {
-        console.log("Show animal:", animal)
+        console.log("comp choice:", animal)
     }
     messageEle.textContent = "Your turn"
 
@@ -74,7 +74,6 @@ function nextRound(){
     getComputerChoice()
     console.log("new round: ", computerSeq)
 }
-
 
 /*----------------------------- Event Listeners -----------------------------*/
 for (let oneAnimal of animalEle) {

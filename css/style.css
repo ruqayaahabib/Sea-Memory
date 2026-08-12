@@ -1,0 +1,62 @@
+body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #b8e3dc;
+    font-family: "Bangers", system-ui;
+    font-weight: 400;
+    font-style: normal;
+    justify-content: center;
+}
+
+#game {
+    width: 500px;
+    padding: 30px;
+    text-align: center;
+    background-color: #d8f2ed;
+    border-radius: 25px;
+}
+
+#game-choice {
+    display: grid;
+    grid-template-columns: auto auto;
+    gap: 20px;
+}
+
+h1 {
+    margin-top: 0;
+    color: #1f5f5b;
+    font-size: 40px;
+}
+
+#score {
+    margin-bottom: 15px;
+    color: #1f5f5b;
+    font-size: 18px;
+    font-weight: bold;
+}
+
+#message {
+    margin-bottom: 25px;
+    color: #356f6b;
+    font-size: 17px;
+    font-weight: bold;
+}
+
+
+.animal {
+    height: 180px;
+    border: none;
+    border-radius: 20px;
+    background-color: white;
+    cursor: pointer;
+}
+
+.animal img {
+    width: 120px;
+    height: 120px;
+}
+
+.animal:hover {
+    background-color: #eefaf7;
+}
