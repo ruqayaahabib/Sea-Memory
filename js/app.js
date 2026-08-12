@@ -21,7 +21,18 @@ console.log("Score:", scoreEle)
 
 /*-------------------------------- Functions --------------------------------*/
 
+function getComputerChoice(){
+    const randomChoice = choice[Math.floor(Math.random() * choice.length)]
 
+    computerSeq.push(randomChoice)
+
+    console.log("Computer seq:", computerSeq)
+
+}
+
+getComputerChoice()
+getComputerChoice()
+getComputerChoice()
 
 
 
