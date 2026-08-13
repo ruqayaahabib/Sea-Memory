@@ -22,33 +22,45 @@ console.log("Score:", scoreEle)
 /*-------------------------------- Functions --------------------------------*/
 
 function getComputerChoice(){
+
     const randomChoice = choice[Math.floor(Math.random() * choice.length)]
 
     computerSeq.push(randomChoice)
-
     // console.log("Computer seq:", computerSeq)
 
 }
 
 getComputerChoice()
 
-function showSeq() {
-    messageEle.textContent = "Watch the sequence"
-    for (let animal of computerSeq) {
-        console.log("comp choice:", animal)
-    }
-    messageEle.textContent = "Your turn"
+function showAnimal(animal){
+    console.log("comp choice:", animal)
 
+    const choiceEle = document.querySelector("#" + animal)
+    choiceEle.style.transform = "scale(1.2)"
+
+    setTimeout(function(){
+        choiceEle.style.transform = "scale(1)"
+    }, 400)
+}
+function showSeq() {
+    updateMessage("Watch the sequence")
+
+    for(let i=0; i< computerSeq.length; i++){
+        setTimeout(()=> {showAnimal(computerSeq[i])}, 800 * i)
+    }
 }
 showSeq()
 
+
 function handleClickChoice(event) {
+    updateMessage("Your Turn")
     const playerChoice = event.target.id 
     playerSeq.push(playerChoice)
     console.log("Player choice: ", playerSeq)
 
     checkAnswer()
 }
+
 
 function checkAnswer() {
     const currentIndex = playerSeq.length -1
@@ -65,7 +77,7 @@ function checkAnswer() {
     }
     else {
         console.log("Wrong")
-        messageEle.textContent = "Game Over"
+        updateMessage("Game Over")
     }
 }
 
@@ -73,6 +85,12 @@ function nextRound(){
     playerSeq=[]
     getComputerChoice()
     console.log("new round: ", computerSeq)
+
+    showSeq()
+}
+
+function updateMessage(message){
+    messageEle.textContent = message 
 }
 
 /*----------------------------- Event Listeners -----------------------------*/
