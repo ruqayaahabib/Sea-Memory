@@ -27,7 +27,7 @@ function init (){
     computerSeq=[]
     playerSeq=[]
     score=0
-    message = "Watch the sequance"
+    message = "Watch the sequence"
     gameOver = false
     playerTurn = false
 
@@ -81,7 +81,7 @@ function showSeq() {
     }
 
     setTimeout(function(){
-        message="Tour Turn"
+        message="Your Turn"
         playerTurn=true
         render()
 
