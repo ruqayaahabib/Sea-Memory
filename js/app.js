@@ -7,6 +7,9 @@ const choice = ["turtle","fish","octopus","jellyfish"]
 let computerSeq = []
 let playerSeq = []
 let score = 0
+let message = null
+let gameOver = null
+let playerTurn= null 
 
 /*------------------------ Cached Element References ------------------------*/
 
@@ -20,6 +23,31 @@ console.log("Score:", scoreEle)
 
 
 /*-------------------------------- Functions --------------------------------*/
+function init (){
+    computerSeq=[]
+    playerSeq=[]
+    score=0
+    message = "Watch the sequance"
+    gameOver = false
+    playerTurn = false
+
+    getComputerChoice()
+    render()
+    showSeq()
+}
+init()
+
+function render(){
+    updateMessage()
+    updateScore()
+}
+function updateMessage(){
+    messageEle.textContent = message 
+}
+function updateScore(){
+    scoreEle.textContent = "Score" + score
+
+}
 
 function getComputerChoice(){
 
@@ -30,7 +58,6 @@ function getComputerChoice(){
 
 }
 
-getComputerChoice()
 
 function showAnimal(animal){
     console.log("comp choice:", animal)
@@ -42,19 +69,33 @@ function showAnimal(animal){
         choiceEle.style.transform = "scale(1)"
     }, 400)
 }
-function showSeq() {
-    updateMessage("Watch the sequence")
 
+
+function showSeq() {
+    playerTurn=false
+    message = "Watch the sequence"
+    render()
+    
     for(let i=0; i< computerSeq.length; i++){
         setTimeout(()=> {showAnimal(computerSeq[i])}, 800 * i)
     }
+
+    setTimeout(function(){
+        message="Tour Turn"
+        playerTurn=true
+        render()
+
+    }, 800 * computerSeq.length)
 }
-showSeq()
 
 
 function handleClickChoice(event) {
-    updateMessage("Your Turn")
+    if (gameOver || playerTurn === false){
+        return
+    }
+
     const playerChoice = event.target.id 
+    showAnimal(playerChoice)
     playerSeq.push(playerChoice)
     console.log("Player choice: ", playerSeq)
 
@@ -77,20 +118,22 @@ function checkAnswer() {
     }
     else {
         console.log("Wrong")
-        updateMessage("Game Over")
+        gameOver=true
+        playerTurn=false
+        message="Game Over"
+        render()
     }
 }
 
 function nextRound(){
     playerSeq=[]
+    playerTurn=false
     getComputerChoice()
     console.log("new round: ", computerSeq)
 
-    showSeq()
-}
-
-function updateMessage(message){
-    messageEle.textContent = message 
+    setTimeout(function() {
+        showSeq()
+    }, 800)
 }
 
 /*----------------------------- Event Listeners -----------------------------*/
