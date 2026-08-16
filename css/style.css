@@ -1,20 +1,29 @@
 body {
+    padding: 90px 0;
     display: flex;
     justify-content: center;
     align-items: center;
     background-color: #b8e3dc;
-    font-family: "Bangers", system-ui;
+    /* font-family: "Bangers", system-ui; */
+    font-family: "Russo One", sans-serif;
     font-weight: 400;
     font-style: normal;
     justify-content: center;
+
+    background-image: url(../images/background.png);
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
 }
 
 #game {
     width: 500px;
     padding: 30px;
     text-align: center;
-    background-color: #d8f2ed;
-    border-radius: 25px;
+    background-color: #daf5ff;
+    border: 5px solid #ffffffa6;
+    border-radius: 45px;
+    box-shadow: 0 15px 35px #00467340;
 }
 
 #game-choice {
@@ -23,24 +32,36 @@ body {
     gap: 20px;
 }
 
-h1 {
+/* h1 {
     margin-top: 0;
     color: #1f5f5b;
     font-size: 40px;
-}
+} */
 
-#score {
+/* #score {
     margin-bottom: 15px;
     color: #1f5f5b;
     font-size: 18px;
     font-weight: bold;
+} */
+
+#score-box {
+    display: inline-block;
+    margin-bottom: 15px;
+    padding: 10px 24px;
+    color: #123f78;
+    background-color: white;
+    border-radius: 25px;
+    font-size: 20px;
 }
 
 #message {
+    margin-top: 10px;
     margin-bottom: 25px;
-    color: #356f6b;
-    font-size: 17px;
-    font-weight: bold;
+    font-family: "Bangers", system-ui;
+    color: #123f78;
+    font-size: 40px;
+    letter-spacing: 2px;
 }
 
 
@@ -58,5 +79,5 @@ h1 {
 }
 
 .animal:hover {
-    background-color: #eefaf7;
-}
+    background-color: #f0faff;
+} 
