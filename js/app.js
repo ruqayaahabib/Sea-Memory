@@ -21,6 +21,13 @@ console.log("Animal buttons:", animalEle)
 console.log("Message:", messageEle)
 console.log("Score:", scoreEle)
 
+const menuEle = document.querySelector(".main-menu")
+const startBtnEle = document.querySelector("#start-button")
+const titleEle = document.querySelector("#game-title")
+
+console.log("Main Menu:" , menuEle)
+console.log("Start Button: ", startBtnEle)
+
 
 /*-------------------------------- Functions --------------------------------*/
 function init (){
@@ -136,7 +143,20 @@ function nextRound(){
     }, 800)
 }
 
+function startGame(){
+    console.log("Game Started")
+    startBtnEle.style.display = "none"
+    titleEle.style.display="none"
+    menuEle.style.display="none"
+
+    getComputerChoice()
+    showSeq()
+
+}
+
 /*----------------------------- Event Listeners -----------------------------*/
 for (let oneAnimal of animalEle) {
     oneAnimal.addEventListener("click",handleClickChoice)
 }
+
+startBtnEle.addEventListener("click", startGame)
