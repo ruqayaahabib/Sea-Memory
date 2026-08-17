@@ -23,11 +23,20 @@ console.log("Score:", scoreEle)
 
 const menuEle = document.querySelector(".main-menu")
 const startBtnEle = document.querySelector("#start-button")
-const titleEle = document.querySelector("#game-title")
 
 console.log("Main Menu:" , menuEle)
 console.log("Start Button: ", startBtnEle)
 
+
+const gameOverPopupEle = document.querySelector("#gameOver-popup")
+const finalScoreEle = document.querySelector("#final-score")
+const restartBtnEle = document.querySelector("#restart-button")
+const mainMenuBtnEle = document.querySelector("#mainMenu-button")
+
+console.log("Game Over Popup:", gameOverPopupEle)
+console.log("Final Score:", finalScoreEle)
+console.log("Restart Button:", restartBtnEle)
+console.log("Main Menu Button:", mainMenuBtnEle)
 
 /*-------------------------------- Functions --------------------------------*/
 function init (){
@@ -38,9 +47,7 @@ function init (){
     gameOver = false
     playerTurn = false
 
-    getComputerChoice()
     render()
-    showSeq()
 }
 init()
 
@@ -57,12 +64,8 @@ function updateScore(){
 }
 
 function getComputerChoice(){
-
     const randomChoice = choice[Math.floor(Math.random() * choice.length)]
-
     computerSeq.push(randomChoice)
-    // console.log("Computer seq:", computerSeq)
-
 }
 
 
@@ -70,7 +73,7 @@ function showAnimal(animal){
     console.log("comp choice:", animal)
 
     const choiceEle = document.querySelector("#" + animal)
-    choiceEle.style.transform = "scale(1.2)"
+    choiceEle.style.transform = "scale(1.4)"
 
     setTimeout(function(){
         choiceEle.style.transform = "scale(1)"
@@ -125,10 +128,7 @@ function checkAnswer() {
     }
     else {
         console.log("Wrong")
-        gameOver=true
-        playerTurn=false
-        message="Game Over"
-        render()
+        showGameOver()
     }
 }
 
@@ -145,13 +145,34 @@ function nextRound(){
 
 function startGame(){
     console.log("Game Started")
-    startBtnEle.style.display = "none"
-    titleEle.style.display="none"
     menuEle.style.display="none"
 
     getComputerChoice()
     showSeq()
 
+}
+
+
+function showGameOver(){
+    gameOver = true
+    playerTurn = false
+    message = "Game Over"
+
+    finalScoreEle.textContent = score
+    gameOverPopupEle.style.display = "flex"
+    render()
+}
+
+function restartGame(){
+    gameOverPopupEle.style.display = "none"
+    init()
+    getComputerChoice()
+    showSeq()
+}
+function backToMainMenu(){
+    gameOverPopupEle.style.display = "none"
+    menuEle.style.display = "flex"
+    init()
 }
 
 /*----------------------------- Event Listeners -----------------------------*/
@@ -160,3 +181,7 @@ for (let oneAnimal of animalEle) {
 }
 
 startBtnEle.addEventListener("click", startGame)
+
+
+restartBtnEle.addEventListener("click", restartGame)
+mainMenuBtnEle.addEventListener("click", backToMainMenu)
