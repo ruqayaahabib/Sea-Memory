@@ -75,11 +75,11 @@ The main menu displayed when the player first opens Sea Memory.
 
 The main game screen where the player watches and repeats the sea animal sequence.
 
-![Sea Memory CompSeq Screen](images/compSeq.png)
+![Sea Memory CompSeq Screen](images/CompSeq.png)
 <br>
 
 
-![Sea Memory PlayerTurn Screen](images/yourturn.png)
+![Sea Memory PlayerTurn Screen](images/YourTurn.png)
 
 
 <br/>
@@ -88,7 +88,7 @@ The main game screen where the player watches and repeats the sea animal sequenc
 
 The popup displayed when the player selects the wrong animal.
 
-![Sea Memory Game Over](images/gameover.png)
+![Sea Memory Game Over](images/GameOver.png)
 
 </div>
 
