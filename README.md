@@ -20,10 +20,18 @@
 </div>
 
 
-<br/>
 <br>
 <br>
 
+># Game Link 
+- https://ruqayaahabib.github.io/Sea-Memory/
+
+
+
+
+<br>
+<br>
+<br>
 
 #  Description
 Sea Memory is a memory game where the player watches a sequence of sea animals, The game contains four sea animals:
@@ -114,18 +122,18 @@ The popup displayed when the player selects the wrong animal.
 # Credits
 
 ### JavaScript
-- https://developer.mozilla.org/en-US/docs/Web/API/Window/setTimeout
+- [Set Time Out](https://developer.mozilla.org/en-US/docs/Web/API/Window/setTimeout)
 
-- https://stackoverflow.com/questions/24293376/javascript-for-loop-with-timeout
+- [Time Out With loop](https://stackoverflow.com/questions/24293376/javascript-for-loop-with-timeout)
 
 
 
 
 
 ### CSS:
-- https://www.w3schools.com/css/css_grid.asp
+- [CSS Grid Layout](https://www.w3schools.com/css/css_grid.asp)
 
-- https://developer.mozilla.org/en-US/docs/Web/CSS/Reference/Values/transform-function/scale
+- [Scale](https://developer.mozilla.org/en-US/docs/Web/CSS/Reference/Values/transform-function/scale)
 
 
 

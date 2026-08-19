@@ -39,6 +39,7 @@ console.log("Restart Button:", restartBtnEle)
 console.log("Main Menu Button:", mainMenuBtnEle)
 
 /*-------------------------------- Functions --------------------------------*/
+// This function is used to reset all values
 function init (){
     computerSeq=[]
     playerSeq=[]
@@ -51,24 +52,27 @@ function init (){
 }
 init()
 
+// This function is used to update the game screen 
 function render(){
     updateMessage()
     updateScore()
 }
+// This function is to show the current message 
 function updateMessage(){
     messageEle.textContent = message 
 }
+// This function is used to show the current score 
 function updateScore(){
     scoreEle.textContent = score
 
 }
-
+// This function is used to add random choices to the computer sequance 
 function getComputerChoice(){
     const randomChoice = choice[Math.floor(Math.random() * choice.length)]
     computerSeq.push(randomChoice)
 }
 
-
+// This function is used to higlight one animal for short time 
 function showAnimal(animal){
     console.log("comp choice:", animal)
 
@@ -80,7 +84,7 @@ function showAnimal(animal){
     }, 400)
 }
 
-
+// This function is used to show the computer sequence to the player 
 function showSeq() {
     playerTurn=false
     message = "Watch the sequence"
@@ -98,7 +102,7 @@ function showSeq() {
     }, 800 * computerSeq.length)
 }
 
-
+// This function is used to get the player choice 
 function handleClickChoice(event) {
     if (gameOver || playerTurn === false){
         return
@@ -112,7 +116,7 @@ function handleClickChoice(event) {
     checkAnswer()
 }
 
-
+// This function is used to check the player answer 
 function checkAnswer() {
     const currentIndex = playerSeq.length -1
     if (playerSeq[currentIndex] === computerSeq[currentIndex]){
@@ -131,7 +135,7 @@ function checkAnswer() {
         showGameOver()
     }
 }
-
+// This function is for starting a new round 
 function nextRound(){
     playerSeq=[]
     playerTurn=false
@@ -142,7 +146,7 @@ function nextRound(){
         showSeq()
     }, 800)
 }
-
+// This function is used to hide the main menu
 function startGame(){
     console.log("Game Started")
     menuEle.style.display="none"
